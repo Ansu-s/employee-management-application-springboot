@@ -1,4 +1,4 @@
-package com.example.personmanagement.configurations;
+package com.example.employee.configurations;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 @Configuration
 @Slf4j
 public class FlywayConfiguration {
+
     @Autowired
     private DataSource dataSource;
 
@@ -22,9 +23,12 @@ public class FlywayConfiguration {
     }
 
     private void migrations(DataSource dataSource) {
-        Flyway flyway = Flyway.configure().dataSource(dataSource).locations("classpath:/database/migrations").load();
+        Flyway flyway = Flyway
+                .configure()
+                .dataSource(dataSource)
+                .locations("classpath:/database/migrations")
+                .load();
 
         flyway.migrate();
     }
-
 }

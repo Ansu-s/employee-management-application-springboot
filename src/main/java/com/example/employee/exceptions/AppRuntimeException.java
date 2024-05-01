@@ -1,4 +1,4 @@
-package com.example.personmanagement.exceptions;
+package com.example.employee.exceptions;
 
 public class AppRuntimeException extends RuntimeException{
 
