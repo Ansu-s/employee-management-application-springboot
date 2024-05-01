@@ -22,7 +22,7 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    EntityManager entityManager;
+    private EntityManager entityManager;
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -66,8 +66,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employeeList = employeeEntities.stream().map(e -> new Employee().fromEntity(e)).toList();
         return employeeList;
     }
+   
     // used JPQL perform the search operation (Is this the JPA Query mentioned in the assignment)
-
     public Employee getEmployeeByAge(Long age) {
         try {
             Query query = entityManager.createQuery("SELECT emp FROM EmployeeEntity emp WHERE emp.age = :age");
