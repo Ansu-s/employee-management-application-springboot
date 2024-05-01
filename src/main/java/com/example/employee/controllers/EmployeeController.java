@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
 
     @Autowired
@@ -44,7 +44,7 @@ public class EmployeeController {
         return employeeService.getEmployeeByAge(age);
     }
 
-    @GetMapping("/find/{name}")
+    @GetMapping("/search/{name}")
     public List<Employee> findEmployeeByName(@PathVariable String name) {
         return employeeService.findEmployeeByName(name);
     }
