@@ -8,255 +8,7 @@
 <details>
   <summary>API Documentation</summary>
 
-{
-"openapi": "3.0.1",
-"info": {
-"title": "OpenAPI definition",
-"version": "v0"
-},
-"servers": [
-{
-"url": "http://localhost:8080",
-"description": "Generated server url"
-}
-],
-"paths": {
-"/employee/{id}": {
-"get": {
-"tags": [
-"employee-controller"
-],
-"operationId": "getEmployeeById",
-"parameters": [
-{
-"name": "id",
-"in": "path",
-"required": true,
-"schema": {
-"type": "integer",
-"format": "int64"
-}
-}
-],
-"responses": {
-"200": {
-"description": "OK",
-"content": {
-"*/*": {
-"schema": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-}
-}
-}
-},
-"put": {
-"tags": [
-"employee-controller"
-],
-"operationId": "updateEmployee",
-"parameters": [
-{
-"name": "id",
-"in": "path",
-"required": true,
-"schema": {
-"type": "integer",
-"format": "int64"
-}
-}
-],
-"requestBody": {
-"content": {
-"application/json": {
-"schema": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-},
-"required": true
-},
-"responses": {
-"200": {
-"description": "OK",
-"content": {
-"*/*": {
-"schema": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-}
-}
-}
-},
-"delete": {
-"tags": [
-"employee-controller"
-],
-"operationId": "deleteEmployee",
-"parameters": [
-{
-"name": "id",
-"in": "path",
-"required": true,
-"schema": {
-"type": "integer",
-"format": "int64"
-}
-}
-],
-"responses": {
-"204": {
-"description": "No Content"
-}
-}
-}
-},
-"/employee": {
-"get": {
-"tags": [
-"employee-controller"
-],
-"operationId": "getAllEmployees",
-"responses": {
-"200": {
-"description": "OK",
-"content": {
-"*/*": {
-"schema": {
-"type": "array",
-"items": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-}
-}
-}
-}
-},
-"post": {
-"tags": [
-"employee-controller"
-],
-"operationId": "createEmployee",
-"requestBody": {
-"content": {
-"application/json": {
-"schema": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-},
-"required": true
-},
-"responses": {
-"201": {
-"description": "Created",
-"content": {
-"*/*": {
-"schema": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-}
-}
-}
-}
-},
-"/employee/find/{name}": {
-"get": {
-"tags": [
-"employee-controller"
-],
-"operationId": "findEmployeeByName",
-"parameters": [
-{
-"name": "name",
-"in": "path",
-"required": true,
-"schema": {
-"type": "string"
-}
-}
-],
-"responses": {
-"200": {
-"description": "OK",
-"content": {
-"*/*": {
-"schema": {
-"type": "array",
-"items": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-}
-}
-}
-}
-}
-},
-"/employee/age/{age}": {
-"get": {
-"tags": [
-"employee-controller"
-],
-"operationId": "getEmployeeByAge",
-"parameters": [
-{
-"name": "age",
-"in": "path",
-"required": true,
-"schema": {
-"type": "integer",
-"format": "int64"
-}
-}
-],
-"responses": {
-"200": {
-"description": "OK",
-"content": {
-"*/*": {
-"schema": {
-"$ref": "#/components/schemas/Employee"
-}
-}
-}
-}
-}
-}
-}
-},
-"components": {
-"schemas": {
-"Employee": {
-"type": "object",
-"properties": {
-"id": {
-"type": "integer",
-"format": "int64"
-},
-"name": {
-"type": "string"
-},
-"age": {
-"type": "integer",
-"format": "int32"
-},
-"salary": {
-"type": "number",
-"format": "double"
-},
-"address": {
-"type": "string"
-}
-}
-}
-}
-}
-}
+{"openapi":"3.0.1","info":{"title":"OpenAPI definition","version":"v0"},"servers":[{"url":"http://localhost:8080","description":"Generated server url"}],"paths":{"/employees/{id}":{"get":{"tags":["employee-controller"],"operationId":"getEmployeeById","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Employee"}}}}}},"put":{"tags":["employee-controller"],"operationId":"updateEmployee","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Employee"}}},"required":true},"responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Employee"}}}}}},"delete":{"tags":["employee-controller"],"operationId":"deleteEmployee","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"204":{"description":"No Content"}}}},"/employees":{"get":{"tags":["employee-controller"],"operationId":"getAllEmployees","responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Employee"}}}}}}},"post":{"tags":["employee-controller"],"operationId":"createEmployee","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Employee"}}},"required":true},"responses":{"201":{"description":"Created","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Employee"}}}}}}},"/employees/search/{name}":{"get":{"tags":["employee-controller"],"operationId":"findEmployeeByName","parameters":[{"name":"name","in":"path","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Employee"}}}}}}}},"/employees/age/{age}":{"get":{"tags":["employee-controller"],"operationId":"getEmployeeByAge","parameters":[{"name":"age","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/Employee"}}}}}}}},"components":{"schemas":{"Employee":{"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"age":{"type":"integer","format":"int32"},"salary":{"type":"number","format":"double"},"address":{"type":"string"}}}}}}
 </details>
 <details>
 <summary>Screenshots</summary>
@@ -285,23 +37,27 @@ curl --location 'http://localhost:8080/employee' \
 ```
 - Fetch all the employees list form the database
 ```
-curl --location 'http://localhost:8080/employee'
+curl -X 'GET' \
+  'http://localhost:8080/employees' \
+  -H 'accept: */*'
 ```
 - Get an employee with specific id
 ```
-curl --location 'http://localhost:8080/employee/1'
+curl -X 'GET' \
+  'http://localhost:8080/employees/1' \
+  -H 'accept: */*'
 ```
 - Get an employee by its name
 ```
-curl --location 'http://localhost:8080/employee/find/user'
+curl --location 'http://localhost:8080/employees/search/user'
 ```
 - Get an employee by its age
 ```
-curl --location 'http://localhost:8080/employee/age/30'
+curl --location 'http://localhost:8080/employees/age/30'
 ```
 - Update an employee data by using its id
 ```
-curl --location --request PUT 'http://localhost:8080/employee/1' \
+curl --location --request PUT 'http://localhost:8080/employees/1' \
 --header 'Content-Type: application/json' \
 --data '{
   "id": 1,
@@ -313,5 +69,5 @@ curl --location --request PUT 'http://localhost:8080/employee/1' \
 ```
 - Delete an employee by its id
 ```
-curl --location --request DELETE 'http://localhost:8080/employee/2'
+curl --location --request DELETE 'http://localhost:8080/employees   /2'
 ```
