@@ -15,6 +15,7 @@ public class FlywayConfiguration {
     @Autowired
     private DataSource dataSource;
 
+    // Comment this if you want to run the integration tests using another database, Not disabling this will cause errors
     @PostConstruct
     public void init() {
         log.info("Migrations started");

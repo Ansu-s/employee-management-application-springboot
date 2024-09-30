@@ -54,12 +54,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> findEmployeeByName(String name) {
+    public List<Employee> findEmployeeByName(String namePssesbyRequest) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<EmployeeEntity> criteriaQuery = criteriaBuilder.createQuery(EmployeeEntity.class);
         Root<EmployeeEntity> root = criteriaQuery.from(EmployeeEntity.class);
 
-        Predicate predicate = criteriaBuilder.equal(root.get("name"), name);
+        Predicate predicate = criteriaBuilder.equal(root.get("name"), namePssesbyRequest);
         criteriaQuery.where(predicate);
 
         List<EmployeeEntity> employeeEntities = entityManager.createQuery(criteriaQuery).getResultList();
